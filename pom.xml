@@ -11,6 +11,10 @@
     <description>校园二手交易平台</description>
     <modules>
         <module>shtp-center</module>
+        <module>shtp-member</module>
+        <module>shtp-order</module>
+        <module>shtp-chat</module>
+        <module>shtp-search</module>
     </modules>
 
     <parent>

@@ -1,0 +1,13 @@
+server:
+  port: 5702
+
+spring:
+  application:
+    name: shtp-order
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5501/eureka/
