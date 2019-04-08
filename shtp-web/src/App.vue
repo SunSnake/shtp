@@ -1,13 +1,16 @@
 <template>
   <div id="app">
+    <NavMenu></NavMenu>
     <router-view/>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import NavMenu from "./component/NavMenu";
+  export default {
+    name: 'App',
+    components: {NavMenu}
+  }
 </script>
 
 <style>
