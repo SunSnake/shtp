@@ -16,8 +16,8 @@ export default new Router({
       component: _import('Login')
     },
     {
-      path: '/Mainpage',
-      component: _import('Mainpage')
+      path: '/home',
+      component: _import('Home')
     }
   ]
 })

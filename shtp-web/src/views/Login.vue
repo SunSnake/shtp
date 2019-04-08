@@ -68,7 +68,7 @@
             }
             alert('登录成功!');
             /*this.$router.push({ name: 'Mainpage',params:{user:self.ruleForm.username,pwd:self.ruleForm.password}});*/
-            this.$router.push('Mainpage');
+            this.$router.push('Home');
           } else {
             console.log('error submit!!');
             return false;
