@@ -1,28 +1,34 @@
 <template>
-  <div class="login">
-    <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="50px" class="demo-ruleForm">
+  <div class="publicback">
+    <div class="lar">
+      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="50px" class="demo-ruleForm">
 
-      <el-form-item label="账号" prop="username">
-        <el-input v-model="ruleForm.username" autocomplete="on"></el-input>
-      </el-form-item>
+        <el-form-item label="账号" label-width="80px" prop="username">
+          <el-input v-model="ruleForm.username" autocomplete="on"></el-input>
+        </el-form-item>
 
-      <el-form-item label="密码" prop="password">
-        <el-input type="password" v-model="ruleForm.password" autocomplete="on"></el-input>
-      </el-form-item>
+        <el-form-item label="密码" label-width="80px" prop="password">
+          <el-input type="password" v-model="ruleForm.password" autocomplete="on"></el-input>
+        </el-form-item>
 
-      <div class="box clearfix">
-        <span class="lf" @click="clearCookie" style="cursor: pointer;color: #f19149;font-size: 0.75rem;margin-left: 5px;">忘记密码？</span>
-        <div class="rt">
-          <el-checkbox v-model="checked" style="color:#a0a0a0;">一周内自动登录</el-checkbox>
+        <div class="box">
+          <div>
+            <span class="lf" @click="clearCookie">忘记密码？</span>
+            <span class="lf" @click="regeditAction">注册</span>
+          </div>
+          <div class="rf">
+            <el-checkbox v-model="checked">一周内自动登录</el-checkbox>
+          </div>
         </div>
-      </div>
 
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('ruleForm')" style="width:100%;">登录</el-button>
-        <!--  <el-button @click="resetForm('ruleForm')">重置</el-button> -->
-      </el-form-item>
-    </el-form>
+        <el-form-item>
+          <el-button type="primary" @click="submitForm('ruleForm')" style="width:100%;">登录</el-button>
+          <!--  <el-button @click="resetForm('ruleForm')">重置</el-button> -->
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
+
 </template>
 
 <script>
@@ -75,6 +81,9 @@
           }
         });
       },
+      regeditAction:function() {
+        this.$router.push('Regedit');
+      },
       // resetForm(formName) {
       //   this.$refs[formName].resetFields();
       // },
@@ -113,31 +122,29 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  .login{
-    min-width: 350px;
-    width: 25%;
-    margin: auto;
-  }
+<style>
+  @import "../styles/public.css";
+  @import "../styles/login.css";
   .lf{
-    float: left;
+    cursor: pointer;
+    color: #f19149;
+    font-size: 0.9rem;
   }
   .box{
-    min-width: 350px;
+    width: 350px;
     margin-left:50px;
-    width: 30%;
+    margin-bottom: 10px;
   }
   .rf{
-    float:right;
+    color:#a0a0a0;
   }
-  .clearfix:after {
+  /*.clearfix:after {
     content:".";
-    display:block;
     height:0;
     visibility:hidden;
     clear:both;
-  }
-  .clearfix {
+  }*/
+  /*.clearfix {
     *zoom:1;
-  }
+  }*/
 </style>

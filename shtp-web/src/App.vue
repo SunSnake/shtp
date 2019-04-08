@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavMenu></NavMenu>
+    <NavMenu v-if="$route.meta.keepAlive"></NavMenu>
     <router-view/>
   </div>
 </template>

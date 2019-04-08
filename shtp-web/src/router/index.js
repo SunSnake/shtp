@@ -13,11 +13,24 @@ export default new Router({
     },
     {
       path: '/login',
-      component: _import('Login')
+      component: _import('Login'),
+      meta: {
+        keepAlive: false
+      }
+    },
+    {
+      path: '/regedit',
+      component: _import('Regedit'),
+      meta: {
+        keepAlive: false
+      }
     },
     {
       path: '/home',
-      component: _import('Home')
+      component: _import('Home'),
+      meta: {
+        keepAlive: true
+      }
     }
   ]
 })
