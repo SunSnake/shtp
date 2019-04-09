@@ -1,13 +1,18 @@
 <template>
   <div class="searchDiv">
-    <el-input placeholder="请输入内容" prefix-icon="el-icon-search" class="searchInput"></el-input>
+    <el-input v-model="input" placeholder="请输入内容" prefix-icon="el-icon-search" class="searchInput"></el-input>
     <el-button type="primary">搜索</el-button>
   </div>
 </template>
 
 <script>
     export default {
-        name: "Search"
+      name: "SearchEngine",
+      data(){
+        return {
+          input: ''
+        }
+      }
     }
 </script>
 

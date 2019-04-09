@@ -38,7 +38,7 @@
       return {
         ruleForm: {
           username: '',
-          password:''
+          password: ''
         },
         rules: {
           username: [
@@ -81,7 +81,7 @@
           }
         });
       },
-      regeditAction:function() {
+      regeditAction: function() {
         this.$router.push('Regedit');
       },
       // resetForm(formName) {

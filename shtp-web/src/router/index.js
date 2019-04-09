@@ -31,6 +31,27 @@ export default new Router({
       meta: {
         keepAlive: true
       }
+    },
+    {
+      path: '/order',
+      component: _import('Order'),
+      meta: {
+        keepAlive: true
+      }
+    },
+    {
+      path: '/MsgCenter',
+      component: _import('MsgCenter'),
+      meta: {
+        keepAlive: true
+      }
+    },
+    {
+      path: '/Askbuy',
+      component: _import('Askbuy'),
+      meta: {
+        keepAlive: true
+      }
     }
   ]
 })
