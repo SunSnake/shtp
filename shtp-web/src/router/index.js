@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/view/Login'
+import Regedit from '@/view/Regedit'
 import Home from '@/view/Home'
 import MainPage from '@/view/MainPage'
 import Order from '@/view/Order'
@@ -15,6 +16,12 @@ export default new Router({
       path: '/',
       name: 'Login',
       component: Login,
+      hidden: true
+    },
+    {
+      path: '/regedit',
+      name: 'Regedit',
+      component: Regedit,
       hidden: true
     },
     {

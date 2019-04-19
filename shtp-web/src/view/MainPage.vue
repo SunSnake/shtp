@@ -1,7 +1,7 @@
 <template>
   <div class="publicback">
     <SearchEngine></SearchEngine>
-    <span class="seg">最新</span>
+    <div class="seg">最新</div>
     <ProductList></ProductList>
   </div>
 </template>

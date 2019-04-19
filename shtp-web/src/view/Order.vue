@@ -30,7 +30,7 @@
         </el-form-item>
       </el-form>
     </div>
-    <span class="seg">已发布</span>
+    <div class="seg">已发布</div>
     <ProductList></ProductList>
   </div>
 
@@ -79,7 +79,7 @@
     width: 700px;
   }
   .pic{
-    position: absolute;
+    position: relative;
     margin-left: 700px;
     margin-top: -264px;
   }

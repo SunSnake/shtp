@@ -1,6 +1,8 @@
 .seg{
-  margin-left: 30px;
+  width: 960px;
+  margin: 0px auto;
   font-size: 25px;
   font-family: Georgia;
   color: burlywood;
+  background-color: cornsilk;
 }

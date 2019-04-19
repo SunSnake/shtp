@@ -11,7 +11,7 @@
         </el-form-item>
       </el-form>
     </div>
-    <span class="seg">最新</span>
+    <div class="seg">最新</div>
     <div class="abmsg">
       <el-table :data="tableData" style="width: 100%">
         <el-table-column prop="date" label="日期" width="180"></el-table-column>
