@@ -1,57 +1,50 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Login from '@/view/Login'
+import Home from '@/view/Home'
+import FriendChat from '@/view/FriendChat'
+import mainPage from '@/view/MainPage'
 
-const _import = require('./_import_' + process.env.NODE_ENV)
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
   routes: [
     {
       path: '/',
-      redirect: '/login' //重定向到登录页面
-    },
-    {
-      path: '/login',
-      component: _import('Login'),
-      meta: {
-        keepAlive: false
-      }
-    },
-    {
-      path: '/regedit',
-      component: _import('Regedit'),
-      meta: {
-        keepAlive: false
-      }
+      name: 'Login',
+      component: Login,
+      hidden: true
     },
     {
       path: '/home',
-      component: _import('Home'),
+      name: '主页',
+      component: Home,
+      hidden: true,
       meta: {
-        keepAlive: true
-      }
-    },
-    {
-      path: '/order',
-      component: _import('Order'),
-      meta: {
-        keepAlive: true
-      }
-    },
-    {
-      path: '/MsgCenter',
-      component: _import('MsgCenter'),
-      meta: {
-        keepAlive: true
-      }
-    },
-    {
-      path: '/Askbuy',
-      component: _import('Askbuy'),
-      meta: {
-        keepAlive: true
-      }
+        requireAuth: true
+      },
+      children: [
+        {
+          path: '/mainPage',
+          name: '主页列表',
+          component: mainPage,
+          hidden: false,
+          meta: {
+            keepAlive: true,
+            requireAuth: true
+          }
+        },
+        {
+          path: '/chat',
+          name: '消息',
+          component: FriendChat,
+          hidden: true,
+          meta: {
+            keepAlive: false,
+            requireAuth: true
+          }
+        }
+      ]
     }
   ]
 })

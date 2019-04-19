@@ -1,4 +1,4 @@
-# shtp-web
+# vuehr
 
 > A Vue.js project
 
