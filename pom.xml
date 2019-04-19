@@ -11,10 +11,11 @@
     <description>校园二手交易平台</description>
     <modules>
         <module>shtp-center</module>
-        <module>shtp-member</module>
         <module>shtp-order</module>
         <module>shtp-chat</module>
         <module>shtp-search</module>
+        <module>shtp-security</module>
+        <module>security-test</module>
     </modules>
 
     <parent>
@@ -55,5 +56,14 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

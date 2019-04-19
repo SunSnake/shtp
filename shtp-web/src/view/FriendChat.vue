@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="publicback">
     <el-container>
       <el-aside width="160px">
         <div class="friendListDiv" v-for="(hr,index) in hrs" :key="hr.id" @click="toggleFriend(hr)"
@@ -125,6 +125,7 @@
   }
 </script>
 <style>
+  @import "../styles/public.css";
   .userfaceImg {
     width: 37px;
     height: 37px;

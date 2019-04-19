@@ -10,7 +10,7 @@
   import SearchEngine from "../component/SearchEngine";
   import ProductList from "../component/ProductList";
   export default {
-    name: "mainPage",
+    name: "MainPage",
     components: {ProductList, SearchEngine}
   }
 </script>

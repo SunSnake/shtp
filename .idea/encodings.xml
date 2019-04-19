@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security-test" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shtp-center" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shtp-chat" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shtp-member" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shtp-order" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shtp-search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/shtp-security" charset="UTF-8" />
+  </component>
+</project>

@@ -13,7 +13,7 @@
           <el-menu-item index="/mainPage" @click="mainPage">主页</el-menu-item>
           <el-menu-item index="2" @click="orderManagement">订单管理</el-menu-item>
           <el-menu-item index="3" @click="goChat" :is-dot="this.$store.nfDot">消息中心</el-menu-item>
-          <el-menu-item index="4" @click="Askbuy">求购</el-menu-item>
+          <el-menu-item index="4" @click="askBuy">求购</el-menu-item>
         </el-menu>
         <div style="display: flex;align-items: center;margin-right: 7px">
           <el-badge style="margin-right: 30px" :is-dot="this.$store.state.nfDot">
@@ -66,8 +66,14 @@
       mainPage(){
         this.$router.push({path: '/mainPage'});
       },
+      orderManagement(){
+        this.$router.push({path: '/order'});
+      },
       goChat(){
         this.$router.push({path: '/chat'});
+      },
+      askBuy(){
+        this.$router.push({path: '/askBuy'});
       },
       handleCommand(cmd){
         var _this = this;

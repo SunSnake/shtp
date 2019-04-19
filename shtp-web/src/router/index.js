@@ -2,8 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/view/Login'
 import Home from '@/view/Home'
+import MainPage from '@/view/MainPage'
+import Order from '@/view/Order'
 import FriendChat from '@/view/FriendChat'
-import mainPage from '@/view/MainPage'
+import Askbuy from '@/view/Askbuy'
 
 Vue.use(Router)
 
@@ -27,7 +29,7 @@ export default new Router({
         {
           path: '/mainPage',
           name: '主页列表',
-          component: mainPage,
+          component: MainPage,
           hidden: false,
           meta: {
             keepAlive: true,
@@ -35,9 +37,29 @@ export default new Router({
           }
         },
         {
+          path: '/order',
+          name: '订单',
+          component: Order,
+          hidden: true,
+          meta: {
+            keepAlive: false,
+            requireAuth: true
+          }
+        },
+        {
           path: '/chat',
           name: '消息',
           component: FriendChat,
+          hidden: true,
+          meta: {
+            keepAlive: false,
+            requireAuth: true
+          }
+        },
+        {
+          path: '/askBuy',
+          name: '求购',
+          component: Askbuy,
           hidden: true,
           meta: {
             keepAlive: false,
