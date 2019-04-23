@@ -5,7 +5,7 @@ import Regedit from '@/view/Regedit'
 import Home from '@/view/Home'
 import MainPage from '@/view/MainPage'
 import Order from '@/view/Order'
-import FriendChat from '@/view/FriendChat'
+import Chat from '@/view/Chat'
 import Askbuy from '@/view/Askbuy'
 
 Vue.use(Router)
@@ -56,7 +56,7 @@ export default new Router({
         {
           path: '/chat',
           name: '消息',
-          component: FriendChat,
+          component: Chat,
           hidden: true,
           meta: {
             keepAlive: false,

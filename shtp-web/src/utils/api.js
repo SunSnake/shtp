@@ -49,16 +49,14 @@ export const postRequest = (url, params) => {
     }
   });
 }
-export const uploadFileRequest = (url, params) => {
+
+export const getRequest = (url) => {
   return axios({
-    method: 'post',
-    url: `${base}${url}`,
-    data: params,
-    headers: {
-      'Content-Type': 'multipart/form-data'
-    }
+    method: 'get',
+    url: `${base}${url}`
   });
 }
+
 export const putRequest = (url, params) => {
   return axios({
     method: 'put',
@@ -76,15 +74,10 @@ export const putRequest = (url, params) => {
     }
   });
 }
+
 export const deleteRequest = (url) => {
   return axios({
     method: 'delete',
-    url: `${base}${url}`
-  });
-}
-export const getRequest = (url) => {
-  return axios({
-    method: 'get',
     url: `${base}${url}`
   });
 }

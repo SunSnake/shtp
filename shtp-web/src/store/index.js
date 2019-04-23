@@ -21,9 +21,6 @@ export default new Vuex.Store({
     nfDot: false
   },
   mutations: {
-    initMenu(state, menus){
-      state.routes = menus;
-    },
     login(state, user){
       state.user = user;
       window.localStorage.setItem('user', JSON.stringify(user));
