@@ -1,0 +1,39 @@
+server:
+  port: 5701
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: 163_route
+        uri: http://www.163.com/
+        predicates:
+        - Path=/163
+      - id: shtp-security
+        uri: lb://shtp-security
+        predicates:
+        - Path=/userapi/**
+        filters:
+        - StripPrefix=1
+      default-filters:
+        - AddResponseHeader=X-Response-Default-Foo, Default Bar
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5501/eureka/

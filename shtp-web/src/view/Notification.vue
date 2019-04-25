@@ -106,7 +106,7 @@
           return;
         }
         var _this = this;
-        this.putRequest("/chat/markread", {flag: this.mid}).then(resp=> {
+        this.putRequest("/userapi/chat/markread", {flag: this.mid}).then(resp=> {
           if (resp && resp.status == 200) {
             _this.initSysMsgs();
           }
@@ -114,7 +114,7 @@
       },
       initSysMsgs(){
         var _this = this;
-        this.getRequest("/chat/sysmsgs").then(resp=> {
+        this.getRequest("/userapi/chat/sysmsgs").then(resp=> {
           _this.sysmsgs = resp.data;
           var isDot = false;
           _this.sysmsgs.forEach(msg=> {
@@ -127,7 +127,7 @@
       },
       allRead(){
         var _this = this;
-        this.putRequest("/chat/markread", {flag: -1}).then(resp=> {
+        this.putRequest("/userapi/chat/markread", {flag: -1}).then(resp=> {
           if (resp && resp.status == 200) {
             _this.$store.commit('toggleNFDot', false);
             _this.initSysMsgs();
@@ -137,13 +137,13 @@
       sendNFMsg(){
         this.dialogLoading = true;
         var _this = this;
-        this.postRequest("/chat/nf", {message: this.message, title: this.title}).then(resp=> {
+        this.postRequest("/userapi/chat/nf", {message: this.message, title: this.title}).then(resp=> {
           _this.dialogLoading = false;
           if (resp && resp.status == 200) {
             var data = resp.data;
-            
+
             if (data.status == 'success') {
-              _this.$store.state.stomp.send("/ws/nf", {}, '');
+              _this.$store.state.stomp.send("/userapi/ws/nf", {}, '');
               _this.initSysMsgs();
               _this.cancelSend();
             }

@@ -1,0 +1,14 @@
+server:
+  port: 5501 #启动端口
+
+spring:
+  application:
+    name: dvsc-eureka
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

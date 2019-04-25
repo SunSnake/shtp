@@ -1,7 +1,7 @@
 <template>
   <div class="categoryPageDiv">
     <div class="categoryProducts">
-      <div price="799.2" class="productUnit">
+      <div class="productUnit">
         <div class="productUnitFrame">
           <a href="#nowhere">
             <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7058.jpg" class="productImage">
@@ -10,19 +10,9 @@
           <a href="#nowhere" class="productLink">
             MAXFEEL休闲男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮
           </a>
-          <a href="#nowhere" class="tmallLink">天猫专卖</a>
-          <div class="show1 productInfo">
-            <span class="monthDeal ">月成交 <span class="productDealNumber">16笔</span></span>
-            <span class="productReview">评价<span class="productReviewNumber">14</span></span>
-            <span class="wangwang">
-					<a href="#nowhere" class="wangwanglink">
-						<img src="http://how2j.cn/tmall/img/site/wangwang.png">
-					</a>
-					</span>
-          </div>
         </div>
       </div>
-      <div price="511.2" class="productUnit">
+      <div class="productUnit">
         <div class="productUnitFrame">
           <a href="#nowhere">
             <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7047.jpg" class="productImage">
@@ -43,7 +33,7 @@
           </div>
         </div>
       </div>
-      <div price="448.2" class="productUnit">
+      <div class="productUnit">
         <div class="productUnitFrame">
           <a href="#nowhere">
             <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7036.jpg" class="productImage">
@@ -64,7 +54,7 @@
           </div>
         </div>
       </div>
-      <div price="411.6" class="productUnit">
+      <div class="productUnit">
         <div class="productUnitFrame">
           <a href="#nowhere">
             <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7025.jpg" class="productImage">
@@ -85,7 +75,7 @@
           </div>
         </div>
       </div>
-      <div price="157.25" class="productUnit">
+      <div class="productUnit">
         <div class="productUnitFrame">
           <a href="#nowhere">
             <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7014.jpg" class="productImage">
@@ -106,7 +96,7 @@
           </div>
         </div>
       </div>
-      <div price="268.2" class="productUnit">
+      <div class="productUnit">
         <div class="productUnitFrame">
           <a href="#nowhere">
             <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7003.jpg" class="productImage">
@@ -127,7 +117,7 @@
           </div>
         </div>
       </div>
-      <div price="233.4" class="productUnit">
+      <div class="productUnit">
         <div class="productUnitFrame">
           <a href="#nowhere">
             <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/6992.jpg" class="productImage">
@@ -148,7 +138,28 @@
           </div>
         </div>
       </div>
-      <div price="952.0" class="productUnit">
+      <div class="productUnit">
+        <div class="productUnitFrame">
+          <a href="#nowhere">
+            <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/6981.jpg" class="productImage">
+          </a>
+          <span class="productPrice">¥952.00</span>
+          <a href="#nowhere" class="productLink">
+            犟牛男士手包真皮手拿包头层牛皮商务大容量手抓包软皮夹包信封包
+          </a>
+          <a href="#nowhere" class="tmallLink">天猫专卖</a>
+          <div class="show1 productInfo">
+            <span class="monthDeal ">月成交 <span class="productDealNumber">20笔</span></span>
+            <span class="productReview">评价<span class="productReviewNumber">16</span></span>
+            <span class="wangwang">
+					<a href="#nowhere" class="wangwanglink">
+						<img src="http://how2j.cn/tmall/img/site/wangwang.png">
+					</a>
+					</span>
+          </div>
+        </div>
+      </div>
+      <div class="productUnit">
         <div class="productUnitFrame">
           <a href="#nowhere">
             <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/6981.jpg" class="productImage">

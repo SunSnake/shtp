@@ -52,7 +52,7 @@
     methods: {
       loadNF(){
         var _this = this;
-        this.getRequest("/chat/sysmsgs").then(resp=> {
+        this.getRequest("/userapi/chat/sysmsgs").then(resp=> {
           var isDot = false;
           resp.data.forEach(msg=> {
             if (msg.state == 0) {
@@ -82,7 +82,7 @@
             cancelButtonText: '取消',
             type: 'warning'
           }).then(() => {
-            _this.getRequest("/logout");
+            _this.getRequest("/userapi/logout");
             _this.$store.commit('logout');
             _this.$router.replace({path: '/'});
           }).catch(() => {

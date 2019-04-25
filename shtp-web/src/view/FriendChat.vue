@@ -89,7 +89,7 @@
           oldMsgJson.push({msg: this.msg, from: this.$store.state.user.username});
           window.localStorage.setItem(this.$store.state.user.username + "#" + this.currentFriend.username, JSON.stringify(oldMsgJson))
         }
-        this.$store.state.stomp.send("/ws/chat", {}, this.msg + ";" + this.currentFriend.username);
+        this.$store.state.stomp.send("/userapi/ws/chat", {}, this.msg + ";" + this.currentFriend.username);
         this.msg = '';
         this.updateChatDiv();
       },
@@ -114,7 +114,7 @@
       },
       loadHrs(){
         var _this = this;
-        this.getRequest("/chat/hrs").then(resp=> {
+        this.getRequest("/userapi/chat/hrs").then(resp=> {
           _this.hrs = resp.data;
         })
       }

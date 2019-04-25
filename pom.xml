@@ -10,18 +10,21 @@
     <version>0.0.1-SNAPSHOT</version>
     <description>校园二手交易平台</description>
     <modules>
-        <module>shtp-center</module>
-        <module>shtp-order</module>
-        <module>shtp-chat</module>
         <module>shtp-search</module>
+        <module>shtp-zipkin</module>
+        <module>shtp-zuul</module>
         <module>shtp-security</module>
-        <module>security-test</module>
+        <module>shtp-message</module>
+        <module>shtp-hystrix</module>
+        <module>shtp-eureka</module>
+        <module>shtp-product</module>
+        <module>shtp-gateway</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.7.RELEASE</version>
+        <version>2.0.4.RELEASE</version>
         <!-- 依赖 spring boot -->
         <relativePath/>
     </parent>
@@ -43,10 +46,10 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
+            <!--<dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
-            </dependency>
+            </dependency>-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>

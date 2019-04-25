@@ -38,7 +38,7 @@
       submitClick: function () {
         var _this = this;
         this.loading = true;
-        this.postRequest('/login', {
+        this.postRequest('/userapi/login', {
           username: this.loginForm.username,
           password: this.loginForm.password
         }).then(resp=> {
