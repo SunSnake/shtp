@@ -2,25 +2,36 @@ server:
   port: 5701
 spring:
   application:
-    name: spring-cloud-gateway
+    name: shtp-gateway
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
+      default-filters:
+      - AddResponseHeader=X-Response-Default-Foo, Default Bar
       routes:
-      - id: 163_route
-        uri: http://www.163.com/
-        predicates:
-        - Path=/163
       - id: shtp-security
         uri: lb://shtp-security
         predicates:
-        - Path=/userapi/**
+        - Path=/security/**
         filters:
         - StripPrefix=1
-      default-filters:
-        - AddResponseHeader=X-Response-Default-Foo, Default Bar
+
+      - id: shtp-product
+        uri: lb://shtp-product
+        predicates:
+        - Path=/product/**
+        filters:
+        - StripPrefix=1
+
+      - id: shtp-message
+        uri: lb://shtp-message
+        predicates:
+        - Path=/message/**
+        filters:
+        - StripPrefix=1
+
 
 
 logging:

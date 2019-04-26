@@ -1,7 +1,7 @@
 package com.shtp.security.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.shtp.security.bean.RespBean;
+import com.shtp.common.bean.RespBean;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;

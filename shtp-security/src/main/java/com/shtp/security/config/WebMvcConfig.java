@@ -1,6 +1,6 @@
 package com.shtp.security.config;
 
-import com.shtp.security.common.DateConverter;
+import com.shtp.common.utils.DateConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;

@@ -17,8 +17,12 @@ module.exports = {
         }
       },
       '/ws/*': {
-        target: 'ws://127.0.0.1:5701',
+        target: 'ws://127.0.0.1:5703',
         ws: true
+      },
+      '/chat/*': {
+        target: 'chat://127.0.0.1:5703',
+        chat: true
       }
     },
     host: 'localhost', // can be overwritten by process.env.HOST

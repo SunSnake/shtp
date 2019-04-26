@@ -1,9 +1,9 @@
 package com.shtp.security.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.shtp.security.bean.RespBean;
-import com.shtp.security.common.HrUtils;
-import com.shtp.security.service.HrService;
+import com.shtp.common.utils.UserUtils;
+import com.shtp.common.bean.RespBean;
+import com.shtp.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.*;
@@ -35,7 +35,7 @@ import java.io.PrintWriter;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
-    HrService hrService;
+    UserService UserService;
     @Autowired
     CustomMetadataSource metadataSource;
     @Autowired
@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(hrService)
+        auth.userDetailsService(UserService)
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
 
@@ -104,7 +104,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                                                         HttpServletResponse resp,
                                                         Authentication auth) throws IOException {
                         resp.setContentType("application/json;charset=utf-8");
-                        RespBean respBean = RespBean.ok("登录成功!", HrUtils.getCurrentHr());
+                        RespBean respBean = RespBean.ok("登录成功!", UserUtils.getCurrentUser());
                         ObjectMapper om = new ObjectMapper();
                         PrintWriter out = resp.getWriter();
                         out.write(om.writeValueAsString(respBean));

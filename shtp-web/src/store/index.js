@@ -47,9 +47,9 @@ export default new Vuex.Store({
   },
   actions: {
     connect(context){
-      context.state.stomp = Stomp.over(new SockJS("/userapi/ws/endpointChat"));
+      context.state.stomp = Stomp.over(new SockJS("/ws/endpointChat"));
       context.state.stomp.connect({}, frame=> {
-        context.state.stomp.subscribe("/userapi/user/queue/chat", message=> {
+        context.state.stomp.subscribe("/user/queue/chat", message=> {
           var msg = JSON.parse(message.body);
           var oldMsg = window.localStorage.getItem(context.state.user.username + "#" + msg.from);
           if (oldMsg == null) {
@@ -72,7 +72,7 @@ export default new Vuex.Store({
             context.commit('updateMsgList', JSON.parse(oldMsg2));
           }
         });
-        context.state.stomp.subscribe("/userapi/topic/nf", message=> {
+        context.state.stomp.subscribe("/topic/nf", message=> {
           context.commit('toggleNFDot', true);
         });
       }, failedMsg=> {

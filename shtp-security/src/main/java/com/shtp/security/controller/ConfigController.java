@@ -1,7 +1,7 @@
 package com.shtp.security.controller;
 
-import com.shtp.security.bean.Hr;
-import com.shtp.security.common.HrUtils;
+import com.shtp.common.bean.User;
+import com.shtp.common.utils.UserUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/config")
 public class ConfigController {
-    @RequestMapping("/hr")
-    public Hr currentUser() {
-        return HrUtils.getCurrentHr();
+    @RequestMapping("/User")
+    public User currentUser() {
+        return UserUtils.getCurrentUser();
     }
 }

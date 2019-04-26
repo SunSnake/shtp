@@ -2,10 +2,10 @@
   <div>
     <el-container>
       <el-aside width="160px">
-        <div class="friendListDiv" v-for="(hr,index) in hrs" :key="hr.id" @click="toggleFriend(hr)"
-             v-bind:class="{currentChatFriend:currentFriend.id==hr.id}">
-          <img :src="hr.userface" class="userfaceImg"/>
-          <el-badge :is-dot="isDotMap.get('isDot#'+currentUser.username+'#'+hr.username)!=null">{{hr.name}}</el-badge>
+        <div class="friendListDiv" v-for="(user,index) in users" :key="user.id" @click="toggleFriend(user)"
+             v-bind:class="{currentChatFriend:currentFriend.id==user.id}">
+          <img :src="user.userface" class="userfaceImg"/>
+          <el-badge :is-dot="isDotMap.get('isDot#'+currentUser.username+'#'+user.username)!=null">{{user.name}}</el-badge>
         </div>
         <div style="background-color: #20a0ff;height: 1px;width: 160px;"/>
       </el-aside>
@@ -54,7 +54,7 @@
   export default{
     data(){
       return {
-        hrs: [],
+        users: [],
         msg: '',
         currentUser: this.$store.state.user,
         currentFriend: {}
@@ -89,7 +89,7 @@
           oldMsgJson.push({msg: this.msg, from: this.$store.state.user.username});
           window.localStorage.setItem(this.$store.state.user.username + "#" + this.currentFriend.username, JSON.stringify(oldMsgJson))
         }
-        this.$store.state.stomp.send("/userapi/ws/chat", {}, this.msg + ";" + this.currentFriend.username);
+        this.$store.state.stomp.send("/ws/chat", {}, this.msg + ";" + this.currentFriend.username);
         this.msg = '';
         this.updateChatDiv();
       },
@@ -101,26 +101,26 @@
           this.$store.commit('updateMsgList', JSON.parse(oldMsg))
         }
       },
-      toggleFriend(hr){
+      toggleFriend(user){
         //切换数据
-        if (hr == this.currentFriend) {
+        if (user == this.currentFriend) {
           return;
         }
-        this.currentFriend = hr;
-        this.$store.commit('updateCurrentFriend', hr);
+        this.currentFriend = user;
+        this.$store.commit('updateCurrentFriend', user);
         this.updateChatDiv();
-        this.$store.commit("removeValueDotMap", "isDot#" + this.currentUser.username + "#" + hr.username);
+        this.$store.commit("removeValueDotMap", "isDot#" + this.currentUser.username + "#" + user.username);
         document.getElementById('chatDiv').scrollTop = document.getElementById('chatDiv').scrollHeight;
       },
-      loadHrs(){
+      loadUsers(){
         var _this = this;
-        this.getRequest("/userapi/chat/hrs").then(resp=> {
-          _this.hrs = resp.data;
+        this.getRequest("/chat/users").then(resp=> {
+          _this.users = resp.data;
         })
       }
     },
     mounted: function () {
-      this.loadHrs();
+      this.loadUsers();
     }
   }
 </script>

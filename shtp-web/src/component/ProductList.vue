@@ -1,14 +1,16 @@
 <template>
   <div class="categoryPageDiv">
     <div class="categoryProducts">
-      <div class="productUnit">
+      <div class="productUnit"
+        v-for="unit in units"
+        :key="unit.id">
         <div class="productUnitFrame">
           <a href="#nowhere">
-            <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7058.jpg" class="productImage">
+            <img :src="unit.pic_src" width="100px" class="productImage" />
           </a>
-          <span class="productPrice">¥799.20</span>
+          <span class="productPrice">¥{{unit.price}}</span>
           <a href="#nowhere" class="productLink">
-            MAXFEEL休闲男士手包真皮手拿包大容量信封包手抓包夹包软韩版潮
+            {{unit.dipction}}
           </a>
         </div>
       </div>
@@ -186,9 +188,25 @@
 </template>
 
 <script>
-    export default {
-        name: "ProductList"
+  export default {
+    name: "ProductList",
+    data(){
+      return{
+        units: []
+      }
+    },
+    methods: {
+      loadProducts(){
+        var _this = this;
+        this.getRequest('/product/unit/load').then(resp=>{
+          _this.units = resp.data;
+        })
+      }
+    },
+    mounted: function () {
+      this.loadProducts()
     }
+  }
 </script>
 
 <style>

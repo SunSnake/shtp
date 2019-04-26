@@ -38,7 +38,7 @@
       submitClick: function () {
         var _this = this;
         this.loading = true;
-        this.postRequest('/userapi/login', {
+        this.postRequest('/security/login', {
           username: this.loginForm.username,
           password: this.loginForm.password
         }).then(resp=> {
@@ -53,7 +53,7 @@
         });
       },
       regeditClick: function () {
-        this.$router.replace({path: '/regedit'});
+        this.$router.replace({path: '/security/regedit'});
       }
     }
   }
