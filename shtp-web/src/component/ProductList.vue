@@ -5,181 +5,9 @@
         v-for="unit in units"
         :key="unit.id">
         <div class="productUnitFrame">
-          <a href="#nowhere">
-            <img :src="unit.pic_src" width="100px" class="productImage" />
-          </a>
-          <span class="productPrice">¥{{unit.price}}</span>
-          <a href="#nowhere" class="productLink">
-            {{unit.dipction}}
-          </a>
-        </div>
-      </div>
-      <div class="productUnit">
-        <div class="productUnitFrame">
-          <a href="#nowhere">
-            <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7047.jpg" class="productImage">
-          </a>
-          <span class="productPrice">¥511.20</span>
-          <a href="#nowhere" class="productLink">
-            宾度 男士手包真皮大容量手拿包牛皮个性潮男包手抓包软皮信封包
-          </a>
-          <a href="#nowhere" class="tmallLink">天猫专卖</a>
-          <div class="show1 productInfo">
-            <span class="monthDeal ">月成交 <span class="productDealNumber">49笔</span></span>
-            <span class="productReview">评价<span class="productReviewNumber">18</span></span>
-            <span class="wangwang">
-					<a href="#nowhere" class="wangwanglink">
-						<img src="http://how2j.cn/tmall/img/site/wangwang.png">
-					</a>
-					</span>
-          </div>
-        </div>
-      </div>
-      <div class="productUnit">
-        <div class="productUnitFrame">
-          <a href="#nowhere">
-            <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7036.jpg" class="productImage">
-          </a>
-          <span class="productPrice">¥448.20</span>
-          <a href="#nowhere" class="productLink">
-            唯美诺新款男士手包男包真皮大容量小羊皮手拿包信封包软皮夹包潮
-          </a>
-          <a href="#nowhere" class="tmallLink">天猫专卖</a>
-          <div class="show1 productInfo">
-            <span class="monthDeal ">月成交 <span class="productDealNumber">34笔</span></span>
-            <span class="productReview">评价<span class="productReviewNumber">16</span></span>
-            <span class="wangwang">
-					<a href="#nowhere" class="wangwanglink">
-						<img src="http://how2j.cn/tmall/img/site/wangwang.png">
-					</a>
-					</span>
-          </div>
-        </div>
-      </div>
-      <div class="productUnit">
-        <div class="productUnitFrame">
-          <a href="#nowhere">
-            <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7025.jpg" class="productImage">
-          </a>
-          <span class="productPrice">¥411.60</span>
-          <a href="#nowhere" class="productLink">
-            英伦邦纹男士手包牛皮大容量真皮手拿包手抓包双拉链商务正品软皮
-          </a>
-          <a href="#nowhere" class="tmallLink">天猫专卖</a>
-          <div class="show1 productInfo">
-            <span class="monthDeal ">月成交 <span class="productDealNumber">25笔</span></span>
-            <span class="productReview">评价<span class="productReviewNumber">19</span></span>
-            <span class="wangwang">
-					<a href="#nowhere" class="wangwanglink">
-						<img src="http://how2j.cn/tmall/img/site/wangwang.png">
-					</a>
-					</span>
-          </div>
-        </div>
-      </div>
-      <div class="productUnit">
-        <div class="productUnitFrame">
-          <a href="#nowhere">
-            <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7014.jpg" class="productImage">
-          </a>
-          <span class="productPrice">¥157.25</span>
-          <a href="#nowhere" class="productLink">
-            劳迪莱斯男士手包休闲手拿包牛皮大容量钱包男包软面小包包手抓包
-          </a>
-          <a href="#nowhere" class="tmallLink">天猫专卖</a>
-          <div class="show1 productInfo">
-            <span class="monthDeal ">月成交 <span class="productDealNumber">17笔</span></span>
-            <span class="productReview">评价<span class="productReviewNumber">16</span></span>
-            <span class="wangwang">
-					<a href="#nowhere" class="wangwanglink">
-						<img src="http://how2j.cn/tmall/img/site/wangwang.png">
-					</a>
-					</span>
-          </div>
-        </div>
-      </div>
-      <div class="productUnit">
-        <div class="productUnitFrame">
-          <a href="#nowhere">
-            <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/7003.jpg" class="productImage">
-          </a>
-          <span class="productPrice">¥268.20</span>
-          <a href="#nowhere" class="productLink">
-            帕朗尼男士手拿包真皮手包商务休闲头层牛皮软牛皮大容量休闲钱包
-          </a>
-          <a href="#nowhere" class="tmallLink">天猫专卖</a>
-          <div class="show1 productInfo">
-            <span class="monthDeal ">月成交 <span class="productDealNumber">5笔</span></span>
-            <span class="productReview">评价<span class="productReviewNumber">19</span></span>
-            <span class="wangwang">
-					<a href="#nowhere" class="wangwanglink">
-						<img src="http://how2j.cn/tmall/img/site/wangwang.png">
-					</a>
-					</span>
-          </div>
-        </div>
-      </div>
-      <div class="productUnit">
-        <div class="productUnitFrame">
-          <a href="#nowhere">
-            <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/6992.jpg" class="productImage">
-          </a>
-          <span class="productPrice">¥233.40</span>
-          <a href="#nowhere" class="productLink">
-            编织手包手拿包男信封大容量手抓包真皮韩版潮商务休闲牛皮男包
-          </a>
-          <a href="#nowhere" class="tmallLink">天猫专卖</a>
-          <div class="show1 productInfo">
-            <span class="monthDeal ">月成交 <span class="productDealNumber">8笔</span></span>
-            <span class="productReview">评价<span class="productReviewNumber">19</span></span>
-            <span class="wangwang">
-					<a href="#nowhere" class="wangwanglink">
-						<img src="http://how2j.cn/tmall/img/site/wangwang.png">
-					</a>
-					</span>
-          </div>
-        </div>
-      </div>
-      <div class="productUnit">
-        <div class="productUnitFrame">
-          <a href="#nowhere">
-            <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/6981.jpg" class="productImage">
-          </a>
-          <span class="productPrice">¥952.00</span>
-          <a href="#nowhere" class="productLink">
-            犟牛男士手包真皮手拿包头层牛皮商务大容量手抓包软皮夹包信封包
-          </a>
-          <a href="#nowhere" class="tmallLink">天猫专卖</a>
-          <div class="show1 productInfo">
-            <span class="monthDeal ">月成交 <span class="productDealNumber">20笔</span></span>
-            <span class="productReview">评价<span class="productReviewNumber">16</span></span>
-            <span class="wangwang">
-					<a href="#nowhere" class="wangwanglink">
-						<img src="http://how2j.cn/tmall/img/site/wangwang.png">
-					</a>
-					</span>
-          </div>
-        </div>
-      </div>
-      <div class="productUnit">
-        <div class="productUnitFrame">
-          <a href="#nowhere">
-            <img width="100px" src="http://how2j.cn/tmall/img/productSingle_middle/6981.jpg" class="productImage">
-          </a>
-          <span class="productPrice">¥952.00</span>
-          <a href="#nowhere" class="productLink">
-            犟牛男士手包真皮手拿包头层牛皮商务大容量手抓包软皮夹包信封包
-          </a>
-          <a href="#nowhere" class="tmallLink">天猫专卖</a>
-          <div class="show1 productInfo">
-            <span class="monthDeal ">月成交 <span class="productDealNumber">20笔</span></span>
-            <span class="productReview">评价<span class="productReviewNumber">16</span></span>
-            <span class="wangwang">
-					<a href="#nowhere" class="wangwanglink">
-						<img src="http://how2j.cn/tmall/img/site/wangwang.png">
-					</a>
-					</span>
-          </div>
+          <span class="productPicture"><img :src="unit.pic_src" width="100px" class="productImage" /></span>
+          <span class="productPrice" @click="goUser">¥{{unit.price}}</span>
+          <span class="productLink" @click="goUser">{{unit.dipction}}</span>
         </div>
       </div>
       <div style="clear:both"></div>
@@ -197,10 +25,13 @@
     },
     methods: {
       loadProducts(){
-        var _this = this;
+        let _this = this;
         this.getRequest('/product/unit/load').then(resp=>{
           _this.units = resp.data;
         })
+      },
+      goUser(){
+
       }
     },
     mounted: function () {
@@ -248,14 +79,16 @@
     color: #CC0000;
     display: block;
     padding-left: 4px;
+    margin-top: 15px;
   }
-  div.productUnit a.productLink{
+  div.productUnit span.productLink{
     margin: 10px 0px;
     color: #333333;
     display: block;
     height:34px;
+    margin-top: 15px;
   }
-  div.productUnit a.productLink:hover{
+  div.productUnit span.productLink:hover{
     text-decoration: underline;
     color: #C40000;
   }

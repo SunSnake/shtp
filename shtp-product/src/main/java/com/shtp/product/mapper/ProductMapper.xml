@@ -10,6 +10,9 @@
         <result column="price" property="price"/>
         <result column="dipction" property="dipction"/>
     </resultMap>
+    <insert id="postProduct" parameterType="com.shtp.product.bean.ProductUnit">
+        insert into productunit
+    </insert>
     <select id="getAllPruducts" resultType="com.shtp.product.bean.ProductUnit">
         select * from productunit
     </select>

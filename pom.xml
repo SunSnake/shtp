@@ -11,14 +11,12 @@
     <description>校园二手交易平台</description>
     <modules>
         <module>shtp-search</module>
-        <module>shtp-zipkin</module>
-        <module>shtp-zuul</module>
         <module>shtp-security</module>
         <module>shtp-message</module>
-        <module>shtp-hystrix</module>
         <module>shtp-eureka</module>
         <module>shtp-product</module>
         <module>shtp-gateway</module>
+        <module>shtp-common</module>
     </modules>
 
     <parent>

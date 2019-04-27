@@ -14,8 +14,9 @@ public class ProductService {
     @Autowired
     ProductMapper productMapper;
 
-    public List<ProductUnit> getAllPruducts() {
+    public void postProduct(){productMapper.postProduct();}
 
+    public List<ProductUnit> getAllPruducts() {
         return productMapper.getAllPruducts();
     }
 }

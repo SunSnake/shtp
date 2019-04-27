@@ -66,7 +66,7 @@
         this.$router.push({path: '/mainPage'});
       },
       orderManagement(){
-        this.$router.push({path: '/order'});
+        this.$router.push({path: '/product'});
       },
       goChat(){
         this.$router.push({path: '/chat'});

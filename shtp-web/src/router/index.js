@@ -4,7 +4,7 @@ import Login from '@/view/Login'
 import Regedit from '@/view/Regedit'
 import Home from '@/view/Home'
 import MainPage from '@/view/MainPage'
-import Order from '@/view/Order'
+import Product from '@/view/Product'
 import Chat from '@/view/Chat'
 import Askbuy from '@/view/Askbuy'
 
@@ -44,9 +44,9 @@ export default new Router({
           }
         },
         {
-          path: '/order',
-          name: '订单',
-          component: Order,
+          path: '/product',
+          name: '产品',
+          component: Product,
           hidden: true,
           meta: {
             keepAlive: false,

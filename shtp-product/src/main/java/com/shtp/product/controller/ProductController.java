@@ -16,6 +16,11 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    @RequestMapping(value = "/submit", method = RequestMethod.POST)
+    public void postProduct(){
+        productService.postProduct();
+    }
+
     @RequestMapping(value = "/load", method = RequestMethod.GET)
     public List<ProductUnit> getProduct(){
         return productService.getAllPruducts();
