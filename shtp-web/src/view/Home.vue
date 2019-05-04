@@ -82,7 +82,7 @@
             cancelButtonText: '取消',
             type: 'warning'
           }).then(() => {
-            _this.getRequest("/security/logout");
+            _this.getRequest("/logout");
             _this.$store.commit('logout');
             _this.$router.replace({path: '/'});
           }).catch(() => {

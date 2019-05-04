@@ -1,0 +1,27 @@
+server:
+  port: 5701
+
+spring:
+  application:
+    name: shtp-zuul
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/shtp?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: admin
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5501/eureka/
+
+mybatis:
+  config-location: classpath:/mybatis-config.xml
+
+zuul:
+  routes:
+    api-a:
+      path: /product/**
+      serviceId: shtp-product  #如果是/ribbon/**路径下的请求，则跳转到service-ribbon
