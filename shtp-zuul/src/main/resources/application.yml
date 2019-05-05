@@ -22,9 +22,12 @@ mybatis:
 
 zuul:
   routes:
-    api-a:
+    product:
       path: /product/**
       serviceId: shtp-product  #如果是/ribbon/**路径下的请求，则跳转到service-ribbon
-    api-b:
+    askbuy:
       path: /askbuy/**
       serviceId: shtp-askbuy  #如果是/ribbon/**路径下的请求，则跳转到service-ribbon
+    search:
+      path: /search/**
+      serviceId: shtp-search  #如果是/ribbon/**路径下的请求，则跳转到service-ribbon

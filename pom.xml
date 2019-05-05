@@ -12,9 +12,9 @@
     <modules>
         <module>shtp-eureka</module>
         <module>shtp-product</module>
-        <module>shtp-common</module>
         <module>shtp-zuul</module>
         <module>shtp-askbuy</module>
+        <module>shtp-search</module>
     </modules>
 
     <parent>
