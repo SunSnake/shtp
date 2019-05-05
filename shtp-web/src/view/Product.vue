@@ -9,43 +9,39 @@
           <el-form-item label="商品价格：">
             <el-input v-model="productForm.price"></el-input>
           </el-form-item>
-        </div>
-        <div class="pic">
-          <el-form-item v-model="productForm.imageUrl">
-            <img id="portrait" style="width: 200px;height: 200px;background-color: #eeeeee"/>
-            <input type="file" id="saveImage" accept="image/png,image/gif,image/jpeg">
-            <!--<el-upload
-              class="avatar-uploader"
-              action=""
-              :show-file-list="false"
-              :before-upload="beforeAvatarUpload">
-              <img src="" alt="" id="portrait" style="width: 300px;height: 200px;background-color: #eeeeee"/>
-              <img v-if="form.imageUrl" :src="form.imageUrl" class="avatar">
-              <i v-else class="el-icon-plus avatar-uploader-icon"></i>
-            </el-upload>-->
+          <el-form-item label="图片路径：">
+            <el-input
+              v-model="productForm.imageUrl"
+            ></el-input>
           </el-form-item>
         </div>
-
-        <el-form-item>
+        <div class="pic">
+          <!--<img id="portrait" style="width: 200px;height: 200px;background-color: #eeeeee"/>
+          <input type="file" id="saveImage" accept="image/png,image/gif,image/jpeg" style="margin-left: 50px">-->
+          <img :src="previewAvatar" style="width: 200px;height: 200px;background-color: #eeeeee"/>
+          <input type="file" name="file" ref="upload" @change="getImg" accept="image/png,image/gif,image/jpeg" style="margin-left: 50px">
+        </div>
+        <el-form-item class="buttons">
           <el-button type="primary" @click="onSubmit">立即创建</el-button>
-          <el-button>取消</el-button>
+          <el-button>清除</el-button>
         </el-form-item>
       </el-form>
     </div>
     <div class="seg">已发布</div>
-    <ProductList></ProductList>
+    <PersonalizedList></PersonalizedList>
   </div>
 
 </template>
 
 <script>
-    import ProductList from "../component/ProductList";
+    import PersonalizedList from "../component/PersonalizedList";
     export default {
       name: 'Product',
-      components: {ProductList},
+      components: {PersonalizedList},
       data() {
         return {
           productForm: {
+            userId: this.$store.state.user.id,
             description: '',
             price: '',
             imageUrl: ''
@@ -54,23 +50,30 @@
       },
 
       mounted: function () {
-        this.great();
+        /*this.great();*/
       },
       methods: {
         onSubmit(){
           var _this = this;
           this.loading = true;
-          this.postRequest('/product/unit/submit', {
-            description: this.productForm.description,
-            price: this.productForm.price,
-            imageUrl: this.imageUrl
-          }).then(resp=> {
+          this.postRequest('/product/unit/submit', this.productForm).then(resp=> {
             _this.loading = false;
-            if (resp && resp.status == 200) {
-            }
           });
         },
-        great() {
+        getImg(){
+          var _this = this;
+          this.productForm.imageUrl=window.URL.createObjectURL(_this.$refs.upload.files[0]);
+
+          /*var _this = this;
+          var imgFile = this.$refs.upload.files[0];
+          var fr = new FileReader();
+          fr.readAsDataURL(imgFile);
+          fr.onload = function () {
+            _this.productForm.imageUrl=fr.result;
+          }
+*/
+        }
+        /*great() {
           document.getElementById('saveImage').onchange = function () {
             var imgFile = this.files[0];
             var fr = new FileReader();
@@ -79,6 +82,7 @@
               document.getElementById('portrait').src = fr.result;
             };
             fr.readAsDataURL(imgFile);
+            this.productForm.imageUrl=document.getElementById('portrait').src;
           }
         },
         changeImage(e) {
@@ -89,7 +93,7 @@
           reader.onload = function (e) {
             that.avatar = this.result
           }
-        }
+        }*/
       }
     }
 </script>
@@ -99,18 +103,6 @@
   @import "../styles/seg.css";
   @import "../styles/upperDiv.css";
 
-  .upload-imgs{margin: 10px 0 30px 0;overflow: hidden;font-size: 0;}
-  .upload-imgs li{position: relative;width: 118px;height: 118px;font-size: 14px;display: inline-block;padding: 10px;margin-right: 25px;border: 2px dashed #ccc;text-align: center;vertical-align: middle;}
-  .upload-imgs li:hover{border-color: $them-color;}
-  .upload-imgs .add{display: block;background-color: #ccc;color: #ffffff;height: 94px;padding: 8px 0;}
-  .upload-imgs .add .iconfont{padding: 10px 0;font-size: 40px;}
-  .upload-imgs li:hover .add{background-color: $them-color;}
-  .upload-imgs li .upload{position: absolute;top: 0;bottom: 0;left: 0;right: 0;width: 118px;height: 118px;}
-  .upload-imgs .img{position: relative;width: 94px;height: 94px;line-height: 94px;}
-  .upload-imgs .img img{vertical-align: middle;}
-  .upload-imgs .img .close{display: none;}
-  .upload-imgs li:hover .img .close{display: block;position: absolute;right: -6px;top: -10px;line-height: 1;font-size: 22px;color: #aaa;}
-
   .description{
     width: 700px;
   }
@@ -119,26 +111,8 @@
     margin-left: 700px;
     margin-top: -264px;
   }
-  .avatar-uploader {
-    border: 1px dashed darkgray;
-    border-radius: 6px;
-    cursor: pointer;
-    width: 180px;
-  }
-  .avatar-uploader:hover {
-    border-color: #409EFF;
-  }
-  .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 178px;
-    height: 178px;
-    line-height: 178px;
-    text-align: center;
-  }
-  .avatar {
-    width: 178px;
-    height: 178px;
-    display: block;
+
+  .buttons{
+    margin-top: 50px;
   }
 </style>

@@ -2,8 +2,9 @@
   <div class="categoryPageDiv">
     <div class="categoryProducts">
       <div class="productUnit"
-        v-for="unit in units"
-        :key="unit.id">
+           v-for="unit in units"
+           v-show="currentUser.id==unit.userid"
+           :key="unit.id">
         <div class="productUnitFrame" >
           <span class="productPicture"><img :src="unit.imageUrl" width="100px" class="productImage" /></span>
           <span class="productPrice">¥{{unit.price}}</span>
@@ -18,7 +19,7 @@
 
 <script>
   export default {
-    name: "ProductList",
+    name: "PersonalizedList",
     data(){
       return{
         units: [],
@@ -42,6 +43,6 @@
   }
 </script>
 
-<style>
+<style scoped>
   @import "../styles/productUnit.css";
 </style>

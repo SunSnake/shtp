@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shtp.askbuy.mapper.AskBuyMapper">
+    <resultMap id="BaseResultMap" type="com.shtp.askbuy.bean.AskBuy">
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="date" property="date"/>
+        <result column="description" property="description"/>
+    </resultMap>
+    <insert id="postAskBuy" parameterType="com.shtp.askbuy.bean.AskBuy">
+        insert into askbuy(username, date, description) values (#{username}, #{date}, #{description});
+    </insert>
+    <select id="getAllAskBuys" resultType="com.shtp.askbuy.bean.AskBuy">
+        select * from askbuy;
+    </select>
+</mapper>

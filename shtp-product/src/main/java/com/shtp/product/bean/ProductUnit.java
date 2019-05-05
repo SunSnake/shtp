@@ -1,14 +1,15 @@
 package com.shtp.product.bean;
 
 public class ProductUnit {
-    int id;
-    int userId;
-    String pic_src;
-    Double price;
-    String dipction;
+    private int id;
+    private int userId;
+    private String imageUrl;
+    private Double price;
+    private String description;
 
     public ProductUnit() {
     }
+
 
     public int getId() {
         return this.id;
@@ -18,16 +19,16 @@ public class ProductUnit {
         return this.userId;
     }
 
-    public String getPic_src() {
-        return this.pic_src;
+    public String getImageUrl() {
+        return this.imageUrl;
     }
 
     public Double getPrice() {
         return this.price;
     }
 
-    public String getDipction() {
-        return this.dipction;
+    public String getDescription() {
+        return this.description;
     }
 
     public void setId(int id) {
@@ -38,16 +39,16 @@ public class ProductUnit {
         this.userId = userId;
     }
 
-    public void setPic_src(String pic_src) {
-        this.pic_src = pic_src;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public void setPrice(Double price) {
         this.price = price;
     }
 
-    public void setDipction(String dipction) {
-        this.dipction = dipction;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public boolean equals(final Object o) {
@@ -56,15 +57,17 @@ public class ProductUnit {
         final ProductUnit other = (ProductUnit) o;
         if (!other.canEqual((Object) this)) return false;
         if (this.getId() != other.getId()) return false;
-        final Object this$pic_src = this.getPic_src();
-        final Object other$pic_src = other.getPic_src();
-        if (this$pic_src == null ? other$pic_src != null : !this$pic_src.equals(other$pic_src)) return false;
+        if (this.getUserId() != other.getUserId()) return false;
+        final Object this$imageUrl = this.getImageUrl();
+        final Object other$imageUrl = other.getImageUrl();
+        if (this$imageUrl == null ? other$imageUrl != null : !this$imageUrl.equals(other$imageUrl)) return false;
         final Object this$price = this.getPrice();
         final Object other$price = other.getPrice();
         if (this$price == null ? other$price != null : !this$price.equals(other$price)) return false;
-        final Object this$dipction = this.getDipction();
-        final Object other$dipction = other.getDipction();
-        if (this$dipction == null ? other$dipction != null : !this$dipction.equals(other$dipction)) return false;
+        final Object this$description = this.getDescription();
+        final Object other$description = other.getDescription();
+        if (this$description == null ? other$description != null : !this$description.equals(other$description))
+            return false;
         return true;
     }
 
@@ -76,16 +79,17 @@ public class ProductUnit {
         final int PRIME = 59;
         int result = 1;
         result = result * PRIME + this.getId();
-        final Object $pic_src = this.getPic_src();
-        result = result * PRIME + ($pic_src == null ? 43 : $pic_src.hashCode());
+        result = result * PRIME + this.getUserId();
+        final Object $imageUrl = this.getImageUrl();
+        result = result * PRIME + ($imageUrl == null ? 43 : $imageUrl.hashCode());
         final Object $price = this.getPrice();
         result = result * PRIME + ($price == null ? 43 : $price.hashCode());
-        final Object $dipction = this.getDipction();
-        result = result * PRIME + ($dipction == null ? 43 : $dipction.hashCode());
+        final Object $description = this.getDescription();
+        result = result * PRIME + ($description == null ? 43 : $description.hashCode());
         return result;
     }
 
     public String toString() {
-        return "ProductUnit(id=" + this.getId() + ", pic_src=" + this.getPic_src() + ", price=" + this.getPrice() + ", dipction=" + this.getDipction() + ")";
+        return "ProductUnit(id=" + this.getId() + ", userId=" + this.getUserId() + ", imageUrl=" + this.getImageUrl() + ", price=" + this.getPrice() + ", description=" + this.getDescription() + ")";
     }
 }

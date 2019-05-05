@@ -17,8 +17,8 @@ public class ProductController {
     ProductService productService;
 
     @RequestMapping(value = "/submit", method = RequestMethod.POST)
-    public void postProduct(){
-        productService.postProduct();
+    public void postProduct(ProductUnit productUnit){
+        productService.postProduct(productUnit);
     }
 
     @RequestMapping(value = "/load", method = RequestMethod.GET)

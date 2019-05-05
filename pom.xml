@@ -14,6 +14,7 @@
         <module>shtp-product</module>
         <module>shtp-common</module>
         <module>shtp-zuul</module>
+        <module>shtp-askbuy</module>
     </modules>
 
     <parent>

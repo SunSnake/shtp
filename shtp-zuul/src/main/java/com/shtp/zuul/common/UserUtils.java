@@ -1,6 +1,7 @@
 package com.shtp.zuul.common;
 
 import com.shtp.zuul.bean.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
