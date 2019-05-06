@@ -2,10 +2,10 @@ package com.shtp.product.controller;
 
 import com.shtp.product.bean.ProductUnit;
 import com.shtp.product.service.ProductService;
+import com.shtp.product.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -16,8 +16,27 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-    @RequestMapping(value = "/submit", method = RequestMethod.POST)
-    public void postProduct(ProductUnit productUnit){
+    @Autowired
+    ProductUnit productUnit;
+
+    @RequestMapping("/submit")
+    public void handleFileUpload(@RequestParam("userId") int userId,
+                                 @RequestParam("description") String description,
+                                 @RequestParam("price") Double price,
+                                 @RequestParam("file") MultipartFile file) {
+        String localPath="E:/IDEA/project/shtp/shtp-web/static";
+        String fileName=file.getOriginalFilename();
+        FileUtils.upload(file, localPath, fileName);
+
+        String imgUrl = "http://localhost:8080/static" + "/"+ fileName;
+
+        /*System.out.println(userId + description + price +imgUrl);*/
+
+        productUnit.setUserId(userId);
+        productUnit.setDescription(description);
+        productUnit.setPrice(price);
+        productUnit.setImageUrl(imgUrl);
+
         productService.postProduct(productUnit);
     }
 

@@ -3,11 +3,11 @@
     <div class="upper">
       <el-form ref="form" :model="form" label-width="90px">
         <el-form-item label="添加描述：">
-          <el-input type="textarea" v-model="form.description" :rows="8"></el-input>
+          <el-input type="textarea" v-model="form.description" :rows="8" ref="desc"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="onSubmit">发布</el-button>
-          <el-button>清除</el-button>
+          <el-button @click="clearInput">清除</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -18,7 +18,7 @@
         <el-col :span="5"><div class="grid-content bg-purple-light">用户</div></el-col>
         <el-col :span="14"><div class="grid-content bg-purple">描述</div></el-col>
       </el-row>
-      <el-row v-for="ask in asks" class="rowBottom">
+      <el-row v-for="(ask,index) in asks" :key="index" class="rowBottom">
         <el-col :span="5"><div class="grid-content bg-purple">{{ask.date}}</div></el-col>
         <el-col :span="5"><div class="grid-content bg-purple-light">{{ask.username}}</div></el-col>
         <el-col :span="14"><div class="grid-content bg-purple">{{ask.description}}</div></el-col>
@@ -47,6 +47,9 @@
         this.postRequest('/askbuy/unit/postAskBuy', this.form).then(resp=> {
           _this.loading = false;
         });
+      },
+      clearInput(){
+        this.$refs.desc.value = ''
       },
       loadAskBuy(){
         let _this = this;

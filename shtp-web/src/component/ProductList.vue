@@ -30,14 +30,14 @@
         let _this = this;
         this.getRequest('/product/unit/load').then(resp=>{
           _this.units = resp.data;
-        })
+        });
       },
       goUser(){
         /*this.$router.push({path: '/askBuy'});*/
       }
     },
     mounted: function () {
-      this.loadProducts()
+      this.loadProducts();
     }
   }
 </script>

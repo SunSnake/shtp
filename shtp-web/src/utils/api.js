@@ -32,6 +32,7 @@ axios.interceptors.response.use(data => {
   // return Promise.resolve(err);
 })
 let base = '';
+
 export const postRequest = (url, params) => {
   return axios({
     method: 'post',
