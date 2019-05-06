@@ -16,6 +16,8 @@
         insert into productunit(userid, price, imageUrl, description) values (#{userId}, #{price},#{imageUrl}, #{description});
     </insert>
     <select id="getAllPruducts" resultType="map">
-        select userid, name, userface, imageUrl, description, price from user, productunit where user.id=productunit.userid;
+        select userid, name, userface, imageUrl, description, price from user, productunit
+        where user.id=productunit.userid
+        order by productunit.id desc ;
     </select>
 </mapper>

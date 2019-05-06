@@ -42,11 +42,30 @@
     },
     methods: {
       onSubmit(){
-        var _this = this;
-        this.loading = true;
-        this.postRequest('/askbuy/unit/postAskBuy', this.form).then(resp=> {
-          _this.loading = false;
-        });
+        if (this.$refs.desc.value) {
+          let _this = this;
+          this.postRequest('/askbuy/unit/postAskBuy', this.form).then(resp=> {
+            if (resp&&resp.status==200){
+              this.$confirm('发布成功', '提示', {
+                confirmButtonText: '确定',
+                type: 'warning'
+              }).then(()=>{
+                _this.clearInput();
+                window.location.reload();
+              }).catch(()=>{
+                _this.clearInput();
+                window.location.reload();
+              });
+            } else {
+              alert("未知错误")
+            }
+          });
+        } else {
+          this.$confirm('请输入发布内容', '提示', {
+            confirmButtonText: '确定',
+            type: 'warning'
+          });
+        }
       },
       clearInput(){
         this.$refs.desc.value = ''
@@ -56,7 +75,6 @@
         this.getRequest('/askbuy/unit/loadAskBuy').then(resp=>{
           _this.asks = resp.data;
         });
-        //this.form.date=this.formatDate();
       },
       formatDate() {
         var date = new Date();
@@ -70,6 +88,9 @@
         }
         if (day < 10) {
           day = "0" + day;
+        }
+        if (minutes < 10) {
+          minutes = "0" + minutes;
         }
         return year + "-" + month + "-" + day + " " + hours + ":" + minutes;
       }

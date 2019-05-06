@@ -4,10 +4,10 @@
       <el-form ref="productForm" :model="productForm" label-width="90px">
         <div class="description">
           <el-form-item label="商品描述：">
-            <el-input type="textarea" v-model="productForm.description" :rows="8"></el-input>
+            <el-input type="textarea" v-model="productForm.description" :rows="8" ref="desc"></el-input>
           </el-form-item>
           <el-form-item label="商品价格：">
-            <el-input v-model="productForm.price"></el-input>
+            <el-input v-model="productForm.price" ref="price"></el-input>
           </el-form-item>
         </div>
         <div class="pic">
@@ -16,7 +16,7 @@
         </div>
         <el-form-item class="buttons">
           <el-button type="primary" @click="onSubmit">立即创建</el-button>
-          <el-button>清除</el-button>
+          <el-button @click="clearInput">清除</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -51,21 +51,46 @@
             that.avatar = this.result
           }
         },
+        clearInput(){
+          this.$refs.desc.value = '';
+          this.$refs.price.value = '';
+          this.$refs.avatarInput.value = ''
+        },
         onSubmit(){
-          var _this = this;
-          let config = {
-            headers: {
-              'Content-Type': 'multipart/form-data'
+          if (this.$refs.desc.value&&(this.$refs.price.value&&this.$refs.avatarInput.value)) {
+            let _this = this;
+            let config = {
+              headers: {
+                'Content-Type': 'multipart/form-data'
+              }
             }
+            let formData = new FormData()
+            formData.append('userId', this.$store.state.user.id)
+            formData.append('description', this.productForm.description)
+            formData.append('price', this.productForm.price)
+            formData.append('file', this.$refs.avatarInput.files[0])
+            axios.post('/product/unit/submit', formData, config).then(resp=> {
+              if (resp&&resp.status==200){
+                this.$confirm('发布商品成功', '提示', {
+                  confirmButtonText: '确定',
+                  type: 'warning'
+                }).then(()=>{
+                  _this.clearInput();
+                  window.location.reload();
+                }).catch(()=>{
+                  _this.clearInput();
+                  window.location.reload();
+                });
+              } else {
+                alert("未知错误")
+              }
+            });
+          } else {
+            this.$confirm('请输入发布内容', '提示', {
+              confirmButtonText: '确定',
+              type: 'warning'
+            });
           }
-          let formData = new FormData()
-          formData.append('userId', this.$store.state.user.id)
-          formData.append('description', this.productForm.description)
-          formData.append('price', this.productForm.price)
-          formData.append('file', this.$refs.avatarInput.files[0])
-          axios.post('/product/unit/submit', formData, config).then(resp=> {
-            _this.loading = false;
-          });
         }
       }
     }

@@ -13,6 +13,6 @@
         insert into askbuy(username, date, description) values (#{username}, #{date}, #{description});
     </insert>
     <select id="getAllAskBuys" resultType="com.shtp.askbuy.bean.AskBuy">
-        select * from askbuy;
+        select * from askbuy order by id desc ;
     </select>
 </mapper>
