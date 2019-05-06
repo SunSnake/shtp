@@ -9,9 +9,6 @@ import org.springframework.util.AntPathMatcher;
 
 import java.util.Collection;
 
-/**
- * Created by sang on 2017/12/28.
- */
 @Component
 public class CustomMetadataSource implements FilterInvocationSecurityMetadataSource {
     AntPathMatcher antPathMatcher = new AntPathMatcher();

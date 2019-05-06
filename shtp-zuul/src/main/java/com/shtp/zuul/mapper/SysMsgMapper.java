@@ -4,12 +4,11 @@ import com.shtp.zuul.bean.MsgContent;
 import com.shtp.zuul.bean.SysMsg;
 import com.shtp.zuul.bean.User;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by sang on 2018/2/2.
- */
+@Repository
 public interface SysMsgMapper {
 
     int sendMsg(MsgContent msg);

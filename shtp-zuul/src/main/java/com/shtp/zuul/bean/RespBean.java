@@ -1,6 +1,8 @@
 package com.shtp.zuul.bean;
 
-public class RespBean {
+import java.io.Serializable;
+
+public class RespBean implements Serializable {
     private Integer status;
     private String msg;
     private Object obj;

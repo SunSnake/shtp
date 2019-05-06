@@ -1,8 +1,5 @@
 package com.shtp.zuul.bean;
 
-/**
- * Created by sang on 2018/1/29.
- */
 public class ChatResp {
     private String msg;
     private String from;

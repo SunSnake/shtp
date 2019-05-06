@@ -2,12 +2,11 @@ package com.shtp.zuul.mapper;
 
 import com.shtp.zuul.bean.Role;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by sang on 2018/1/1.
- */
+@Repository
 public interface RoleMapper {
     List<Role> roles();
 

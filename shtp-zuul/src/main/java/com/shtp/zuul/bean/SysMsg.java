@@ -1,8 +1,5 @@
 package com.shtp.zuul.bean;
 
-/**
- * Created by sang on 2018/2/2.
- */
 public class SysMsg {
     private Long id;
     private Long mid;
