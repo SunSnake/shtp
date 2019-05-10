@@ -3,8 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shtp.askbuy.mapper.AskBuyMapper">
-    <resultMap id="BaseResultMap" type="com.shtp.askbuy.bean.AskBuy">
+    <resultMap id="BaseResultMap" type="map">
         <id column="id" property="id"/>
+        <result column="userid" property="userid"/>
         <result column="username" property="username"/>
         <result column="date" property="date"/>
         <result column="description" property="description"/>
@@ -12,8 +13,10 @@
     <insert id="postAskBuy" parameterType="com.shtp.askbuy.bean.AskBuy">
         insert into askbuy(username, date, description) values (#{username}, #{date}, #{description});
     </insert>
-    <select id="getAllAskBuys" resultType="com.shtp.askbuy.bean.AskBuy">
-        select * from askbuy order by date desc ;
+    <select id="getAllAskBuys" resultType="map">
+        select user.id as userid, askbuy.id, date, askbuy.username, description from askbuy, user
+        where askbuy.username=user.name
+        order by date desc ;
     </select>
     <delete id="deleteAskBuy" parameterType="int">
         delete from askbuy where id=#{id}

@@ -19,4 +19,12 @@ public class ProductService {
     public List<ProductUnit> getAllPruducts() {
         return productMapper.getAllPruducts();
     }
+
+    public void updateProduct(ProductUnit productUnit){
+        productMapper.updateProduct(productUnit);
+    }
+
+    public void deleteProductUnit(int id){
+        productMapper.deleteProductUnit(id);
+    }
 }

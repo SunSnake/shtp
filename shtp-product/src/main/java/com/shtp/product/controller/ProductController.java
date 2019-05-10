@@ -44,4 +44,28 @@ public class ProductController {
     public List<ProductUnit> getProduct(){
         return productService.getAllPruducts();
     }
+
+    @RequestMapping(value = "/updateProduct")
+    public void updateProductUnit(@RequestParam("id") int id,
+                                  @RequestParam("description") String description,
+                                  @RequestParam("price") Double price,
+                                  @RequestParam("file") MultipartFile file) {
+        String localPath="E:/IDEA/project/shtp/shtp-web/static";
+        String fileName=file.getOriginalFilename();
+        FileUtils.upload(file, localPath, fileName);
+
+        String imgUrl = "http://localhost:8080/static" + "/"+ fileName;
+
+        productUnit.setId(id);
+        productUnit.setDescription(description);
+        productUnit.setPrice(price);
+        productUnit.setImageUrl(imgUrl);
+
+        productService.updateProduct(productUnit);
+    }
+
+    @RequestMapping(value = "/deleteProduct/{id}", method = RequestMethod.DELETE)
+    public void deleteProductUnit(@PathVariable int id) {
+        productService.deleteProductUnit(id);
+    }
 }

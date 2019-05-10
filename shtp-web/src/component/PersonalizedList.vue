@@ -12,6 +12,8 @@
           <div>
             <img :src="unit.userface" class="userfaceImg"/>
             <div class="productOwner">{{unit.name}}</div>
+            <i class="el-icon-edit" @click="editProduct(unit)"></i>
+            <i class="el-icon-delete" @click="deleteProduct(unit.id)"></i>
           </div>
 
         </div>
@@ -35,6 +37,23 @@
         let _this = this;
         this.getRequest('/product/unit/load').then(resp=>{
           _this.units = resp.data;
+        })
+      },
+      editProduct(unit){
+        this.$router.push({
+          path: `/updateProduct`,
+          query: {
+            id: unit.id,
+            price: unit.price,
+            description: unit.description,
+            avatar: unit.imageUrl
+          }
+        })
+      },
+      deleteProduct(id){
+        this.deleteRequest('/product/unit/deleteProduct/' + id).then(()=>{
+          alert("删除成功");
+          window.location.reload();
         })
       }
     },

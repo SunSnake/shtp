@@ -9,7 +9,13 @@
           <span class="productPicture"><img :src="unit.imageUrl" width="100px" class="productImage" /></span>
           <span class="productPrice">¥{{unit.price}}</span>
           <span class="productLink">{{unit.description}}</span>
-          <a @click="goUser(unit.userid)"><div><img :src="unit.userface" class="userfaceImg"/><div class="productOwner">{{unit.name}}</div></div></a>
+          <div>
+            <a @click="goUser(unit.userid)">
+              <img :src="unit.userface" class="userfaceImg"/>
+              <div class="productOwner">{{unit.name}}</div>
+            </a>
+            <i class="el-icon-delete" @click="deleteProduct(unit.id)" v-show="currentUser.name=='系统管理员'"></i>
+          </div>
         </div>
       </div>
       <div style="clear:both"></div>
@@ -45,6 +51,12 @@
             _this.$router.push({path: '/chat'});
           });
         }
+      },
+      deleteProduct(id){
+        this.deleteRequest('/product/unit/deleteProduct/' + id).then(()=>{
+          alert("删除成功");
+          window.location.reload();
+        })
       }
     },
     mounted: function () {

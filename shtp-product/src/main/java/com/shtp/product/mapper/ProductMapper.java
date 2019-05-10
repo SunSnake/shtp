@@ -9,4 +9,6 @@ import java.util.List;
 public interface ProductMapper {
     void postProduct(ProductUnit productUnit);
     List<ProductUnit> getAllPruducts();
+    void deleteProductUnit(int id);
+    void updateProduct(ProductUnit productUnit);
 }

@@ -22,12 +22,14 @@
       </el-row>
       <el-row v-for="(ask,index) in asks" :key="index" class="rowBottom">
         <el-col :span="5"><div class="grid-content bg-purple">{{ask.date}}</div></el-col>
-        <el-col :span="5"><div class="grid-content bg-purple-light">{{ask.username}}</div></el-col>
+        <el-col :span="5"><a @click="goUser(ask.userid)"><div class="grid-content bg-purple-light">{{ask.username}}</div></a></el-col>
         <el-col :span="14">
           <div class="grid-content bg-purple">
             {{ask.description}}
-            <el-button class="inline" v-show="(currentUser.name==ask.username)||(currentUser.name=='系统管理员')" @click="deleteMsg(ask.id)">删除</el-button>
-            <el-button class="inline" v-show="(currentUser.name==ask.username)||(currentUser.name=='系统管理员')" @click="updateMsg(ask.id)">更新</el-button>
+            <!--<el-button class="inline" v-show="(currentUser.name==ask.username)||(currentUser.name=='系统管理员')" @click="deleteMsg(ask.id)">删除</el-button>
+            <el-button class="inline" v-show="(currentUser.name==ask.username)||(currentUser.name=='系统管理员')" @click="updateMsg(ask.id)">更新</el-button>-->
+            <i class="el-icon-delete inline" @click="deleteMsg(ask.id)" v-show="(currentUser.name==ask.username)||(currentUser.name=='系统管理员')"></i>
+            <i class="el-icon-edit inline" @click="updateMsg(ask.id)" v-show="(currentUser.name==ask.username)||(currentUser.name=='系统管理员')"></i>
           </div>
 
         </el-col>
@@ -51,6 +53,19 @@
       }
     },
     methods: {
+      goUser(userid){
+        let _this = this;
+        if (this.$store.state.user.id == userid) {
+
+        } else {
+          this.postRequest('/system/user/addFriend', {
+            cuid: this.$store.state.user.id,
+            userid: userid
+          }).then(()=> {
+            _this.$router.push({path: '/chat'});
+          });
+        }
+      },
       deleteMsg(id){
         this.deleteRequest('/askbuy/unit/deleteAskBuy/' + id).then(()=>{
           alert("删除成功");
@@ -81,7 +96,7 @@
           let _this = this;
           this.postRequest('/askbuy/unit/postAskBuy', this.form).then(resp=> {
             if (resp&&resp.status==200){
-              this.$confirm('发布成功', '提示', {
+              this.$alert('发布成功', '提示', {
                 confirmButtonText: '确定',
                 type: 'warning'
               }).then(()=>{
@@ -96,7 +111,7 @@
             }
           });
         } else {
-          this.$confirm('请输入发布内容', '提示', {
+          this.$alert('请输入发布内容', '提示', {
             confirmButtonText: '确定',
             type: 'warning'
           });
@@ -145,8 +160,9 @@
   @import "../styles/upperDiv.css";
   .inline{
     float: right;
-    margin-right: 5px;
-    margin-top: -8px;
+    margin-right: 10px;
+    margin-top: 8px;
+    /*margin-top: -8px;*/
   }
   .abmsg{
     padding-left: 20px;

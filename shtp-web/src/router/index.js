@@ -5,6 +5,7 @@ import Regedit from '@/view/Regedit'
 import Home from '@/view/Home'
 import MainPage from '@/view/MainPage'
 import Product from '@/view/Product'
+import UpdateProduct from '@/view/UpdateProduct'
 import Chat from '@/view/Chat'
 import Askbuy from '@/view/Askbuy'
 
@@ -50,6 +51,16 @@ export default new Router({
           hidden: true,
           meta: {
             keepAlive: false,
+            requireAuth: true
+          }
+        },
+        {
+          path: '/updateProduct',
+          name: '更新产品',
+          component: UpdateProduct,
+          hidden: true,
+          meta: {
+            keepAlive: true,
             requireAuth: true
           }
         },

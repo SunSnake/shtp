@@ -5,7 +5,7 @@
         <el-form-item>
           <el-input v-model="searchForm.words" placeholder="请输入内容" prefix-icon="el-icon-search" class="searchInput" ref="words"></el-input>
           <el-button type="primary" @click="postSearch">搜索</el-button>
-          <el-button @click="returnMain">返回</el-button>
+          <el-button @click="returnMain" style="margin-left: 0px">返回</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -61,7 +61,7 @@
             }
           });
         } else {
-          this.$confirm('请输入搜索内容', '提示', {
+          this.$alert('请输入搜索内容', '提示', {
             confirmButtonText: '确定',
             type: 'warning'
           });
@@ -84,6 +84,6 @@
     margin: 150px auto 50px auto;
   }
   .searchInput{
-    width: 500px;
+    width: 450px;
   }
 </style>

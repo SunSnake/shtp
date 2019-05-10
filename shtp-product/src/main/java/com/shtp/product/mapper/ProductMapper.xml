@@ -16,8 +16,16 @@
         insert into productunit(userid, price, imageUrl, description) values (#{userId}, #{price},#{imageUrl}, #{description});
     </insert>
     <select id="getAllPruducts" resultType="map">
-        select userid, name, userface, imageUrl, description, price from user, productunit
+        select userid, name, userface, imageUrl, description, price, productunit.id from user, productunit
         where user.id=productunit.userid
         order by productunit.id desc ;
     </select>
+    <delete id="deleteProductUnit" parameterType="int">
+        delete from productunit where id=#{id}
+    </delete>
+    <update id="updateProduct" parameterType="com.shtp.product.bean.ProductUnit">
+        update productunit
+        set description=#{description}, price=#{price}, imageUrl=#{imageUrl}
+        where id=#{id}
+    </update>
 </mapper>

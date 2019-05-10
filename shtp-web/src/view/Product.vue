@@ -70,23 +70,16 @@
             formData.append('price', this.productForm.price)
             formData.append('file', this.$refs.avatarInput.files[0])
             axios.post('/product/unit/submit', formData, config).then(resp=> {
-              if (resp&&resp.status==200){
-                this.$confirm('发布商品成功', '提示', {
-                  confirmButtonText: '确定',
-                  type: 'warning'
-                }).then(()=>{
-                  _this.clearInput();
-                  window.location.reload();
-                }).catch(()=>{
-                  _this.clearInput();
-                  window.location.reload();
-                });
-              } else {
-                alert("未知错误")
-              }
+              this.$alert('发布商品成功', '提示', {
+                confirmButtonText: '确定',
+                type: 'warning'
+              }).then(()=>{
+                _this.clearInput();
+                window.location.reload();
+              })
             });
           } else {
-            this.$confirm('请输入发布内容', '提示', {
+            this.$alert('请输入发布内容', '提示', {
               confirmButtonText: '确定',
               type: 'warning'
             });
