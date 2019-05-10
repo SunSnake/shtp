@@ -1,5 +1,6 @@
 package com.shtp.zuul.mapper;
 
+import com.shtp.zuul.bean.PersonalizedUser;
 import com.shtp.zuul.bean.Role;
 import com.shtp.zuul.bean.User;
 import org.apache.ibatis.annotations.Param;
@@ -28,4 +29,10 @@ public interface UserMapper {
     int deleteUser(Long userId);
 
     List<User> getAllUser(@Param("currentId") Long currentId);
+
+    List<User> getPersonalizedUser(@Param("currentId") Long currentId);
+
+    void addFriend(PersonalizedUser personalizedUser);
+    void addFriendDouble(PersonalizedUser personalizedUser);
+
 }

@@ -9,4 +9,6 @@ import java.util.List;
 public interface AskBuyMapper {
     void postAskBuy(AskBuy askBuy);
     List<AskBuy> getAllAskBuys();
+    void deleteAskBuy(int id);
+    void updateAskBuy(AskBuy askBuy);
 }

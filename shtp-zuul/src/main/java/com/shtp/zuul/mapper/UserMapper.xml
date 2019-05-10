@@ -6,14 +6,11 @@
     <resultMap id="BaseResultMap" type="com.shtp.zuul.bean.User">
         <id column="id" property="id"/>
         <result column="name" property="name"/>
-        <result column="phone" property="phone"/>
-        <result column="telephone" property="telephone"/>
-        <result column="address" property="address"/>
         <result column="enabled" property="enabled"/>
         <result column="username" property="username"/>
         <result column="password" property="password"/>
         <result column="userface" property="userface"/>
-        <result column="remark" property="remark"/>
+        <result column="email" property="email"/>
     </resultMap>
     <resultMap id="lazyLoadRoles" type="com.shtp.zuul.bean.User" extends="BaseResultMap">
         <collection property="roles" ofType="com.shtp.zuul.bean.Role" select="com.shtp.zuul.mapper.UserMapper.getRolesByUserId"
@@ -54,15 +51,6 @@
             <if test="name != null">
                 name = #{name,jdbcType=VARCHAR},
             </if>
-            <if test="phone != null">
-                phone = #{phone,jdbcType=CHAR},
-            </if>
-            <if test="telephone != null">
-                telephone = #{telephone,jdbcType=VARCHAR},
-            </if>
-            <if test="address != null">
-                address = #{address,jdbcType=VARCHAR},
-            </if>
             <if test="enabled != null">
                 enabled = #{enabled,jdbcType=BIT},
             </if>
@@ -75,8 +63,8 @@
             <if test="userface != null">
                 userface = #{userface,jdbcType=VARCHAR},
             </if>
-            <if test="remark != null">
-                remark = #{remark,jdbcType=VARCHAR},
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
             </if>
         </set>
         where id = #{id}
@@ -99,4 +87,15 @@
             WHERE id !=#{currentId}
         </if>
     </select>
+    <select id="getPersonalizedUser" resultType="com.shtp.zuul.bean.User">
+        select user.id, name, username, password, userface from user,personalizeduser
+        where user.id = personalizeduser.userid
+        and personalizeduser.cuid=#{currentId}
+    </select>
+    <insert id="addFriend" parameterType="com.shtp.zuul.bean.PersonalizedUser">
+        insert into personalizeduser(cuid, userid) values (#{cuid},#{userid});
+    </insert>
+    <insert id="addFriendDouble" parameterType="com.shtp.zuul.bean.PersonalizedUser">
+        insert into personalizeduser(cuid, userid) values (#{userid},#{cuid});
+    </insert>
 </mapper>

@@ -1,5 +1,6 @@
 package com.shtp.zuul.service;
 
+import com.shtp.zuul.bean.PersonalizedUser;
 import com.shtp.zuul.bean.User;
 import com.shtp.zuul.common.UserUtils;
 import com.shtp.zuul.mapper.UserMapper;
@@ -27,6 +28,10 @@ public class UserService implements UserDetailsService {
             throw new UsernameNotFoundException("用户名不对");
         }
         return User;
+    }
+
+    public List<User> getPersonalizedUser() {
+        return userMapper.getPersonalizedUser(UserUtils.getCurrentUser().getId());
     }
 
     public int UserReg(String username, String password) {
@@ -66,4 +71,12 @@ public class UserService implements UserDetailsService {
     public List<User> getAllUser() {
         return userMapper.getAllUser(null);
     }
+
+    public void addFriend(PersonalizedUser personalizedUser){
+        userMapper.addFriend(personalizedUser);
+    }
+    public void addFriendDouble(PersonalizedUser personalizedUser){
+        userMapper.addFriendDouble(personalizedUser);
+    }
+
 }

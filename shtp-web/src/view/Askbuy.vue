@@ -16,12 +16,21 @@
       <el-row class="rowTitle">
         <el-col :span="5"><div class="grid-content bg-purple">日期</div></el-col>
         <el-col :span="5"><div class="grid-content bg-purple-light">用户</div></el-col>
-        <el-col :span="14"><div class="grid-content bg-purple">描述</div></el-col>
+        <el-col :span="14">
+          <div class="grid-content bg-purple">描述</div>
+        </el-col>
       </el-row>
       <el-row v-for="(ask,index) in asks" :key="index" class="rowBottom">
         <el-col :span="5"><div class="grid-content bg-purple">{{ask.date}}</div></el-col>
         <el-col :span="5"><div class="grid-content bg-purple-light">{{ask.username}}</div></el-col>
-        <el-col :span="14"><div class="grid-content bg-purple">{{ask.description}}</div></el-col>
+        <el-col :span="14">
+          <div class="grid-content bg-purple">
+            {{ask.description}}
+            <el-button class="inline" v-show="(currentUser.name==ask.username)||(currentUser.name=='系统管理员')" @click="deleteMsg(ask.id)">删除</el-button>
+            <el-button class="inline" v-show="(currentUser.name==ask.username)||(currentUser.name=='系统管理员')" @click="updateMsg(ask.id)">更新</el-button>
+          </div>
+
+        </el-col>
       </el-row>
     </div>
   </div>
@@ -37,10 +46,36 @@
           username: this.$store.state.user.name,
           description: ''
         },
-        asks: []
+        asks: [],
+        currentUser: this.$store.state.user,
       }
     },
     methods: {
+      deleteMsg(id){
+        this.deleteRequest('/askbuy/unit/deleteAskBuy/' + id).then(()=>{
+          alert("删除成功");
+          window.location.reload();
+        })
+      },
+      updateMsg(id){
+        this.$prompt('请输入描述修改', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+        }).then(({ value }) => {
+          this.$message({
+            type: 'success',
+            message: '修改成功 '
+          });
+          this.putRequest('/askbuy/unit/updateAskBuy', {
+            date: this.formatDate(),
+            id: id,
+            description: value
+          }).then(()=>{
+            alert("更新成功");
+            window.location.reload();
+          })
+        });
+      },
       onSubmit(){
         if (this.$refs.desc.value) {
           let _this = this;
@@ -89,6 +124,9 @@
         if (day < 10) {
           day = "0" + day;
         }
+        if (hours < 10) {
+          hours = "0" + hours;
+        }
         if (minutes < 10) {
           minutes = "0" + minutes;
         }
@@ -105,6 +143,11 @@
   @import "../styles/public.css";
   @import "../styles/seg.css";
   @import "../styles/upperDiv.css";
+  .inline{
+    float: right;
+    margin-right: 5px;
+    margin-top: -8px;
+  }
   .abmsg{
     padding-left: 20px;
     margin-top: 15px;

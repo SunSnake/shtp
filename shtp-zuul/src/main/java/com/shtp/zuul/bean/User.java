@@ -5,22 +5,20 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class User implements UserDetails {
+public class User implements UserDetails, Serializable {
     private Long id;
     private String name;
-    private String phone;
-    private String telephone;
-    private String address;
     private boolean enabled;
     private String username;
     private String password;
-    private String remark;
     private List<Role> roles;
     private String userface;
+    private String email;
     @Override
     public boolean isEnabled() {
         return enabled;
@@ -91,34 +89,9 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
-
 
     public void setUsername(String username) {
         this.username = username;
@@ -128,11 +101,11 @@ public class User implements UserDetails {
         this.password = password;
     }
 
-    public String getRemark() {
-        return remark;
+    public String getEmail() {
+        return email;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

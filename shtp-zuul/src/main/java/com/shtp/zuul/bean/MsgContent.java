@@ -1,8 +1,9 @@
 package com.shtp.zuul.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class MsgContent {
+public class MsgContent implements Serializable {
     private Long id;
     private String message;
     private String title;

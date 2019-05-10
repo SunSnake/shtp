@@ -22,7 +22,9 @@ axios.interceptors.response.use(data => {
     Message.error({message: '权限不足,请联系管理员!'});
   } else if (err.response.status == 401) {
     Message.error({message: err.response.data.msg});
-  } else {
+  } else if (err.response.status == 500) {
+
+  }else {
     if (err.response.data.msg) {
       Message.error({message: err.response.data.msg});
     }else{
@@ -43,7 +45,7 @@ export const postRequest = (url, params) => {
       for (let it in data) {
         ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
       }
-      return ret
+      return ret  //转换成可以对uri进行编码，以发送给浏览器
     }],
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'

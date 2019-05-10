@@ -9,6 +9,7 @@ import store from './store'
 import {getRequest} from './utils/api'
 import {postRequest} from './utils/api'
 import {putRequest} from './utils/api'
+import {deleteRequest} from './utils/api'
 import './utils/filter_utils'
 import 'font-awesome/css/font-awesome.min.css'
 
@@ -18,6 +19,7 @@ Vue.use(ElementUI)
 Vue.prototype.getRequest = getRequest;
 Vue.prototype.postRequest = postRequest;
 Vue.prototype.putRequest = putRequest;
+Vue.prototype.deleteRequest = deleteRequest;
 
 router.beforeEach((to, from, next)=> {
     if (to.name == 'Login') {
@@ -32,9 +34,9 @@ router.beforeEach((to, from, next)=> {
         next();
       }
     } else {
-      store.dispatch('connect');
+      /*store.dispatch('connect');
       if(to.path=='/chat')
-        store.commit("updateMsgList", []);
+        store.commit("updateMsgList", []);*/
       next();
     }
   }

@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: dvsc-eureka
+    name: shtp-eureka
 eureka:
   instance:
     hostname: localhost

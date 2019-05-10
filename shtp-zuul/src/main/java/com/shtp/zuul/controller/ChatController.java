@@ -26,9 +26,13 @@ public class ChatController {
     @Autowired
     SysMsgService sysMsgService;
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    /*@RequestMapping(value = "/users", method = RequestMethod.GET)
     public List<User> getAllUser() {
         return userService.getAllUserExceptAdmin();
+    }*/
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    public List<User> getPersonalizedUser() {
+        return userService.getPersonalizedUser();
     }
 
     @RequestMapping(value = "/nf", method = RequestMethod.POST)

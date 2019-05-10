@@ -1,5 +1,6 @@
 package com.shtp.zuul.controller;
 
+import com.shtp.zuul.bean.PersonalizedUser;
 import com.shtp.zuul.bean.RespBean;
 import com.shtp.zuul.bean.User;
 import com.shtp.zuul.service.UserService;
@@ -53,7 +54,7 @@ public class SystemUserController {
     }
 
 
-    @RequestMapping(value = "/user/reg", method = RequestMethod.POST)
+    @RequestMapping(value = "/reg", method = RequestMethod.POST)
     public RespBean userReg(String username, String password) {
         int i = userService.UserReg(username, password);
         if (i == 1) {
@@ -62,6 +63,12 @@ public class SystemUserController {
             return RespBean.error("用户名重复，注册失败!");
         }
         return RespBean.error("注册失败!");
+    }
+
+    @RequestMapping(value = "/addFriend", method = RequestMethod.POST)
+    public void addFriend(PersonalizedUser personalizedUser){
+        userService.addFriend(personalizedUser);
+        userService.addFriendDouble(personalizedUser);
     }
 
 }

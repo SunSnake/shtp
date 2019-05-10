@@ -10,7 +10,7 @@
           text-color="#fff"
           active-text-color="#ffd04b">
           <el-menu-item index="/mainPage" @click="mainPage">主页</el-menu-item>
-          <el-menu-item index="2" @click="orderManagement">订单管理</el-menu-item>
+          <el-menu-item index="2" @click="orderManagement">商品管理</el-menu-item>
           <el-menu-item index="3" @click="goChat" :is-dot="this.$store.nfDot">消息中心</el-menu-item>
           <el-menu-item index="4" @click="askBuy">求购</el-menu-item>
         </el-menu>
@@ -27,7 +27,6 @@
               </i>
             </span>
             <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>个人中心</el-dropdown-item>
               <el-dropdown-item command="logout" divided>注销</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
@@ -60,7 +59,9 @@
             }
           })
           _this.$store.commit('toggleNFDot', isDot);
-        })
+        });
+        this.$store.dispatch('connect');
+        this.$store.commit("updateMsgList", []);
       },
       mainPage(){
         this.$router.push({path: '/mainPage'});

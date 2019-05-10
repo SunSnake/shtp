@@ -13,6 +13,14 @@
         insert into askbuy(username, date, description) values (#{username}, #{date}, #{description});
     </insert>
     <select id="getAllAskBuys" resultType="com.shtp.askbuy.bean.AskBuy">
-        select * from askbuy order by id desc ;
+        select * from askbuy order by date desc ;
     </select>
+    <delete id="deleteAskBuy" parameterType="int">
+        delete from askbuy where id=#{id}
+    </delete>
+    <update id="updateAskBuy" parameterType="com.shtp.askbuy.bean.AskBuy">
+        update askbuy
+        set description=#{description}, date=#{date}
+        where id=#{id}
+    </update>
 </mapper>

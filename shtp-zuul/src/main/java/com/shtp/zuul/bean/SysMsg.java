@@ -1,6 +1,8 @@
 package com.shtp.zuul.bean;
 
-public class SysMsg {
+import java.io.Serializable;
+
+public class SysMsg implements Serializable {
     private Long id;
     private Long mid;
     private Integer type;

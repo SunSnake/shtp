@@ -17,4 +17,12 @@ public class AskBuyService {
     public List<AskBuy> getAllAskBuys() {
         return askBuyMapper.getAllAskBuys();
     }
+
+    public void updateAskBuy(AskBuy askBuy){
+        askBuyMapper.updateAskBuy(askBuy);
+    }
+
+    public void deleteAskBuy(int id){
+        askBuyMapper.deleteAskBuy(id);
+    }
 }

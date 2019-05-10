@@ -9,7 +9,11 @@
           <span class="productPicture"><img :src="unit.imageUrl" width="100px" class="productImage" /></span>
           <span class="productPrice">¥{{unit.price}}</span>
           <span class="productLink">{{unit.description}}</span>
-          <a @click="goUser"><div><img :src="unit.userface" class="userfaceImg"/><div class="productOwner">{{unit.name}}</div></div></a>
+          <div>
+            <img :src="unit.userface" class="userfaceImg"/>
+            <div class="productOwner">{{unit.name}}</div>
+          </div>
+
         </div>
       </div>
       <div style="clear:both"></div>
@@ -32,9 +36,6 @@
         this.getRequest('/product/unit/load').then(resp=>{
           _this.units = resp.data;
         })
-      },
-      goUser(){
-        /*this.$router.push({path: '/askBuy'});*/
       }
     },
     mounted: function () {

@@ -23,11 +23,11 @@ mybatis:
 zuul:
   routes:
     product:
-      path: /product/**
-      serviceId: shtp-product  #如果是/ribbon/**路径下的请求，则跳转到service-ribbon
+      path: /product/**        #表示带有/product前缀的路径（此处为产品服务）
+      serviceId: shtp-product  #如果是/product/**路径下的请求，则跳转到shtp-product
     askbuy:
-      path: /askbuy/**
-      serviceId: shtp-askbuy  #如果是/ribbon/**路径下的请求，则跳转到service-ribbon
+      path: /askbuy/**         #求购服务路径
+      serviceId: shtp-askbuy  #如果是/askbuy/**路径下的请求，则跳转到shtp-askbuy
     search:
-      path: /search/**
-      serviceId: shtp-search  #如果是/ribbon/**路径下的请求，则跳转到service-ribbon
+      path: /search/**         #搜索服务路径
+      serviceId: shtp-search  #如果是/search/**路径下的请求，则跳转到shtp-search

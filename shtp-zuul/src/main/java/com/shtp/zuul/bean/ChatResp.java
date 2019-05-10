@@ -1,6 +1,8 @@
 package com.shtp.zuul.bean;
 
-public class ChatResp {
+import java.io.Serializable;
+
+public class ChatResp implements Serializable {
     private String msg;
     private String from;
 
